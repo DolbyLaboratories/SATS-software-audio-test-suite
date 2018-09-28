@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "noise_mod", "noise_mod_2015.vcxproj", "{CD7ACE7D-27E6-3F1C-B5F0-13174EB66130}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE} = {A5FAFA67-9097-348E-BA8C-C77F9E1400EE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libkissfft130", "..\..\..\kiss_fft130\libkissfft130\windows_amd64_msvs\libkissfft130_2015.vcxproj", "{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsats", "..\..\libsats\windows_amd64_msvs\libsats_2015.vcxproj", "{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD} = {F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		debug|x64 = debug|x64
+		release|x64 = release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.debug|x64.ActiveCfg = debug|x64
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.debug|x64.Build.0 = debug|x64
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.debug|x64.ActiveCfg = debug|x64
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.debug|x64.Build.0 = debug|x64
+		{CD7ACE7D-27E6-3F1C-B5F0-13174EB66130}.debug|x64.ActiveCfg = debug|x64
+		{CD7ACE7D-27E6-3F1C-B5F0-13174EB66130}.debug|x64.Build.0 = debug|x64
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.release|x64.ActiveCfg = release|x64
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.release|x64.Build.0 = release|x64
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.release|x64.ActiveCfg = release|x64
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.release|x64.Build.0 = release|x64
+		{CD7ACE7D-27E6-3F1C-B5F0-13174EB66130}.release|x64.ActiveCfg = release|x64
+		{CD7ACE7D-27E6-3F1C-B5F0-13174EB66130}.release|x64.Build.0 = release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
