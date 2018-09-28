@@ -1,0 +1,56 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Solution Include="amp_vs_time\windows_x86_msvs\amp_vs_time_2015.sln">
+    </Solution>
+	<Solution Include="dyn_rng\windows_x86_msvs\dyn_rng_2015.sln">
+    </Solution>
+	<Solution Include="freq_resp\windows_x86_msvs\freq_resp_2015.sln">
+    </Solution>
+	<Solution Include="mult_freq_resp_intel\windows_x86_msvs\mult_freq_resp_intel_2015.sln">
+    </Solution>
+	<Solution Include="noise_mod\windows_x86_msvs\noise_mod_2015.sln">
+    </Solution>
+	<Solution Include="pwr_vs_time\windows_x86_msvs\pwr_vs_time_2015.sln">
+    </Solution>
+	<Solution Include="spectrum_avg_intel\windows_x86_msvs\spectrum_avg_intel_2015.sln">
+    </Solution>
+	<Solution Include="spectrum_NFFT_intel\windows_x86_msvs\spectrum_NFFT_intel_2015.sln">
+    </Solution>
+	<Solution Include="thd_vs_freq\windows_x86_msvs\thd_vs_freq_2015.sln">
+    </Solution>
+    <Solution Include="thd_vs_level\windows_x86_msvs\thd_vs_level_2015.sln">
+    </Solution>
+	<Solution Include="amp_vs_time\windows_amd64_msvs\amp_vs_time_2015.sln">
+    </Solution>
+	<Solution Include="dyn_rng\windows_amd64_msvs\dyn_rng_2015.sln">
+    </Solution>
+	<Solution Include="freq_resp\windows_amd64_msvs\freq_resp_2015.sln">
+    </Solution>
+	<Solution Include="mult_freq_resp_intel\windows_amd64_msvs\mult_freq_resp_intel_2015.sln">
+    </Solution>
+	<Solution Include="noise_mod\windows_amd64_msvs\noise_mod_2015.sln">
+    </Solution>
+	<Solution Include="pwr_vs_time\windows_amd64_msvs\pwr_vs_time_2015.sln">
+    </Solution>
+	<Solution Include="spectrum_avg_intel\windows_amd64_msvs\spectrum_avg_intel_2015.sln">
+    </Solution>
+	<Solution Include="spectrum_NFFT_intel\windows_amd64_msvs\spectrum_NFFT_intel_2015.sln">
+    </Solution>
+	<Solution Include="thd_vs_freq\windows_amd64_msvs\thd_vs_freq_2015.sln">
+    </Solution>
+    <Solution Include="thd_vs_level\windows_amd64_msvs\thd_vs_level_2015.sln">
+    </Solution>
+  </ItemGroup>
+  <Target Name="Build">
+    <MSBuild Projects="@(Solution)" BuildInParallel="true" Targets="Build" Properties="Configuration=Debug" />
+	<MSBuild Projects="@(Solution)" BuildInParallel="true" Targets="Build" Properties="Configuration=Release" />
+  </Target>
+  <Target Name="Clean">
+    <MSBuild Projects="@(Solution)" BuildInParallel="true" Targets="Clean" Properties="Configuration=Debug"/>
+	<MSBuild Projects="@(Solution)" BuildInParallel="true" Targets="Clean" Properties="Configuration=Release"/>
+  </Target>
+  <Target Name="Rebuild">
+    <MSBuild Projects="@(Solution)" BuildInParallel="true" Targets="Rebuild" Properties="Configuration=Debug" />
+	<MSBuild Projects="@(Solution)" BuildInParallel="true" Targets="Rebuild" Properties="Configuration=Rebuild" />
+  </Target>
+</Project>
