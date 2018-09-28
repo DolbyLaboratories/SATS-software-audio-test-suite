@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<ItemGroup>
+<Filter Include="dlb_clif">
+<UniqueIdentifier>{c7dbe671-60fd-39f2-8d28-28b812f00b12}</UniqueIdentifier></Filter>
+<Filter Include="dlb_clif\src">
+<UniqueIdentifier>{fd8e495d-d342-3e12-81df-8f818f8b10e6}</UniqueIdentifier></Filter>
+<Filter Include="kiss_fft130">
+<UniqueIdentifier>{d23406b7-2f6f-3e39-aaae-9604282156fd}</UniqueIdentifier></Filter>
+<Filter Include="kiss_fft130\tools">
+<UniqueIdentifier>{b281d448-d5d9-32a3-bdda-0b6e166a3552}</UniqueIdentifier></Filter>
+<Filter Include="src">
+<UniqueIdentifier>{b2cfccce-25d8-39c9-9ec4-4bb539814977}</UniqueIdentifier></Filter></ItemGroup>
+<ItemGroup>
+<ClCompile Include="..\..\..\dlb_clif\src\getparam.c">
+<Filter>dlb_clif\src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\Utilities.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\debug.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\dr_filters.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\fchange.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\fio.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\fir_filter.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\fir_test.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\lp_coef.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\parse_args.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\power.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\sdf_writer.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\settling.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\sos_filter.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\ta_filters.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\vector.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\wavelib.c">
+<Filter>src</Filter></ClCompile>
+<ClCompile Include="..\..\..\src\window.c">
+<Filter>src</Filter></ClCompile></ItemGroup>
+<ItemGroup>
+<ClInclude Include="..\..\..\dlb_clif\getparam.h">
+<Filter>dlb_clif</Filter></ClInclude>
+<ClInclude Include="..\..\..\kiss_fft130\kiss_fft.h">
+<Filter>kiss_fft130</Filter></ClInclude>
+<ClInclude Include="..\..\..\kiss_fft130\tools\kiss_fftnd.h">
+<Filter>kiss_fft130\tools</Filter></ClInclude>
+<ClInclude Include="..\..\..\kiss_fft130\tools\kiss_fftndr.h">
+<Filter>kiss_fft130\tools</Filter></ClInclude>
+<ClInclude Include="..\..\..\kiss_fft130\tools\kiss_fftr.h">
+<Filter>kiss_fft130\tools</Filter></ClInclude>
+<ClInclude Include="..\..\..\src\SATS_fft.h">
+<Filter>src</Filter></ClInclude></ItemGroup>
+<ItemGroup />
+<ItemGroup />
+<ItemGroup />
+<ItemGroup /></Project>
