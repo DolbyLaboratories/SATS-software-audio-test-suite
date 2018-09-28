@@ -1,0 +1,37 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spectrum_avg", "spectrum_avg_2017.vcxproj", "{84B1D69A-9069-3AA0-8F3C-4D0ADF880716}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE} = {A5FAFA67-9097-348E-BA8C-C77F9E1400EE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libkissfft130", "..\..\..\kiss_fft130\libkissfft130\windows_x86_msvs\libkissfft130_2017.vcxproj", "{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsats", "..\..\libsats\windows_x86_msvs\libsats_2017.vcxproj", "{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD} = {F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		debug|Win32 = debug|Win32
+		release|Win32 = release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.debug|Win32.ActiveCfg = debug|Win32
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.debug|Win32.Build.0 = debug|Win32
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.debug|Win32.ActiveCfg = debug|Win32
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.debug|Win32.Build.0 = debug|Win32
+		{84B1D69A-9069-3AA0-8F3C-4D0ADF880716}.debug|Win32.ActiveCfg = debug|Win32
+		{84B1D69A-9069-3AA0-8F3C-4D0ADF880716}.debug|Win32.Build.0 = debug|Win32
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.release|Win32.ActiveCfg = release|Win32
+		{F7B1481D-DBCC-3AAC-9B68-9CBBD7531BBD}.release|Win32.Build.0 = release|Win32
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.release|Win32.ActiveCfg = release|Win32
+		{A5FAFA67-9097-348E-BA8C-C77F9E1400EE}.release|Win32.Build.0 = release|Win32
+		{84B1D69A-9069-3AA0-8F3C-4D0ADF880716}.release|Win32.ActiveCfg = release|Win32
+		{84B1D69A-9069-3AA0-8F3C-4D0ADF880716}.release|Win32.Build.0 = release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
