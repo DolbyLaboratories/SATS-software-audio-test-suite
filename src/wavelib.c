@@ -129,7 +129,7 @@ int read_wav_header(
 		struct WaveFile *wav, 
 		char	*file , 
 		short	*numchans, 
-		int	    *numsamps, 
+		long long *numsamps, 
 		int	    *samprate, 
 		short	*bitspersamp, 
 		short	*wavx,
@@ -149,6 +149,13 @@ int read_wav_header(
 	int channel_mapping;
 	short subformat_guid[8];
 	int done;
+	int b_rf64 = 0;
+	int b_riff = 0;
+	int read_dump = 0;
+	unsigned int sample_count_low = 0;
+	unsigned int sample_count_high = 0;
+	long long combined_samples = 0;
+	int rf64_table_length = 0;
 	short is_wavx = 0;
 	int bytes_read;
 	//short end_of_file = 0;
@@ -179,7 +186,9 @@ int read_wav_header(
 /*	Read chunk header */
 
 	if (fread(chunk_id, 1, 4, wav->file) != 4) return(FILE_READ_ERR);
-	if (strncmp("RIFF", chunk_id, 4)) return(FORMAT_ERR);
+	b_rf64 = strncmp("RF64", chunk_id, 4);
+	b_riff = strncmp("RIFF", chunk_id, 4);
+	if (!(b_rf64) && !(b_riff)) return(FORMAT_ERR);
 
 	if (fread(&chunk_size, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
 
@@ -320,6 +329,27 @@ int read_wav_header(
 		        *timeref_lo = bwf_info.time_reference_low;
 		    }
         }
+		/* RF64 subchunk */
+		else if (strncmp("ds64", subchunk_id, 4) == 0)
+		{
+			// chunk size has been read before
+			// riffSizeLow and riffSizeHigh
+			if (fread(&read_dump, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			if (fread(&read_dump, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			// dataSizeLow and dataSizeHigh
+			if (fread(&read_dump, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			if (fread(&read_dump, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			// sampleCountLow and sampleCountHigh
+			if (fread(&sample_count_low, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			if (fread(&sample_count_high, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			// tableLength
+			if (fread(&rf64_table_length, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			for (int i = 0; i < rf64_table_length; i++)
+			{
+				if (fread(&read_dump, 4, 1, wav->file) != 1) return(FILE_READ_ERR);
+			}
+		}
+
 		/* Skip unsupported subchunk including fact, cue, plst, list, labl, ltxt, note, smpl, inst */
 		else
 		{
@@ -351,7 +381,16 @@ int read_wav_header(
 /*	Set up return values */
 
 	*numchans = num_channels;
-	*numsamps = (long)(data_subchunk_size / (unsigned long)block_align);
+	if ((b_rf64 == 0) && (b_riff == 1))
+	{
+		combined_samples = (((unsigned long long)sample_count_high) << 32) | sample_count_low;
+		*numsamps = combined_samples;
+
+	}
+	else
+	{
+		*numsamps = (long)(data_subchunk_size / (unsigned long)block_align);
+	}
 	*samprate = sample_rate;
 	*bitspersamp = bits_per_sample;
 	if (wavx) *wavx = is_wavx;

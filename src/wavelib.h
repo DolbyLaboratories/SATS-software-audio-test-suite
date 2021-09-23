@@ -130,7 +130,7 @@ int read_wav_header(
 		struct WaveFile *wav, 
 		char	*file, 
 		short	*numchans, 
-		int	    *numsamps, 
+		long long *numsamps, 
 		int	    *samprate, 
 		short	*bitspersamp, 
 		short	*wavx,

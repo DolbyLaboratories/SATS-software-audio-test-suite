@@ -780,6 +780,11 @@ def pwr_vs_time():
 	print("**All Test cases for this binary are executed without silence stripping (with -s) unless specified in the individual test case description**" )
 	print("Results variation of 0.01 dB tolerated")
 	print("")
+	print("RF64 tests")
+	callPowerTest('pwr_vs_time_70','8_rf64_frqstp_48000.wav',3,'bs',1024)
+	callPowerTest('pwr_vs_time_71','8_rf64_frqstp_48000.rf64',3,'bs',1024)
+	callLevelTest('pwr_vs_time_72','8_rf64_frqstp_short_48000_32bit.rf64','pmb',-96,1024)
+	# callLevelTest('pwr_vs_time_73','8_rf64_frqstp_48000_64bit.rf64','pmb',-96,1024) # 64bit input not supported
 	print("Test ID 01 to 67")
 	callPowerTest('pwr_vs_time_01','2048noise_1ktone_shortest.wav',1,'bs',1024)
 	callPowerTest('pwr_vs_time_02','2048noise_1ktone_shortest.wav',1,'bs',2048)
@@ -860,6 +865,7 @@ def pwr_vs_time():
 	callCompare('pwr_vs_time',1,17)
 	callCompare('pwr_vs_time',18,30)
 	callCompare('pwr_vs_time',36,68)
+	callCompare('pwr_vs_time',70,73)
 	printResult()
 	return
   
@@ -953,6 +959,9 @@ def spectrum_nfft():
 	callNfftSplTest('spectrum_NFFT_11','fftavg_mult_44100.wav',512,5,'w')
 	callNfftSplTest('spectrum_NFFT_12','fftavg_mult_44100.wav',512,6,'w')
 	#callNfftSplTest('spectrum_NFFT_02_512','fftavg_mult_44100.wav',512,10,'w')
+	print("")
+	print("***RF64 tests***")
+	callNfftTest('spectrum_NFFT_13','8_rf64_frqstp_short_48000.wav',3,1024,-100)
 	printCall()
 	printCompare()
 	resultCompare('spectrum_NFFT_01_512')
@@ -960,6 +969,7 @@ def spectrum_nfft():
 	resultCompare('spectrum_NFFT_01_8192')
 	callCompareNfft(2,7)
 	callCompare('spectrum_NFFT',7,13)
+	resultCompare('spectrum_NFFT_13')
 	printResult()
 	return
 

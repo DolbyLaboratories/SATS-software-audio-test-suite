@@ -93,7 +93,7 @@ int power_vs_time( pfstruct pfs, int dnr )
     /* Check if block size > total duration of the signal*/
     if ((long) block_size > pfs->size)
     {
-    error("Chose block size is greater than total signal duration. Choose a value less than total signal duration.\n");
+    error("Chosen block size is greater than total signal duration. Choose a value less than total signal duration.\n");
     return(-1);
     }
 
